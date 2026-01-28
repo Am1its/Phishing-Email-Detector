@@ -51,13 +51,6 @@ Run the script directly with a text file as an argument to get a terminal report
 
 python phishing_detector.py email.txt
 
-<details>
-<summary>📸 <strong>Click to expand: View CLI Output</strong></summary>
-
-
-
-<img src="./screenshots/cli_demo.png" alt="CLI Demo" width="700">
-</details>
 
 # Mode B: Desktop Dashboard (GUI)
 Launch the visual scanner to paste text or load files interactively:
