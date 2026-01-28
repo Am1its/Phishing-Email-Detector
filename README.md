@@ -21,7 +21,7 @@ This project features a **hybrid architecture** with a local detection engine, a
 * **Integration:** Google Apps Script
 
 ## 📂 Project Structure
-
+```text
 Email_Phishing_Detector/
 │
 ├── phishing_detector.py   # Core Logic + CLI Mode (The Engine)
@@ -35,28 +35,59 @@ Email_Phishing_Detector/
 └── gmail_addon/           # Source code for Google Workspace Integration
     ├── code.gs            # Google Apps Script logic
     └── appsscript.json    # Manifest configuration
+```
 
 ## ⚙️ Installation
 Clone the repository / Extract files.
 
 Install dependencies:
+
 pip install -r requirements.txt
 
 ## 🏃‍♂️ Usage Modes
 
 # Mode A: Command Line Interface (CLI)
 Run the script directly with a text file as an argument to get a terminal report:
+
 python phishing_detector.py email.txt
+
+<details>
+<summary>📸 <strong>Click to expand: View CLI Output</strong></summary>
+
+
+
+<img src="./screenshots/cli_demo.png" alt="CLI Demo" width="700">
+</details>
 
 # Mode B: Desktop Dashboard (GUI)
 Launch the visual scanner to paste text or load files interactively:
+
 python phishing_ui.py
+
+<details>
+<summary>📸 <strong>Click to expand: View Desktop UI</strong></summary>
+
+
+<img src="./screenshots/desktop_ui.png" alt="Desktop UI" width="700">
+<img src="./screenshots/desktop_ui1.png" alt="Desktop UI" width="700">
+</details>
 
 # Mode C: Gmail Integration (Cloud API)
 The project includes a server (flask_app.py) designed to run on a cloud provider (e.g., PythonAnywhere):
+
 Backend: The Flask server listens for POST requests containing email bodies.
+
 Frontend: The Google Apps Script (gmail_addon/code.gs) fetches the email content and sends it to the cloud API.
+
 Result: The Add-on displays a sidebar in Gmail with a "Risk Score" and detailed findings.
+
+<details>
+<summary>📸 <strong>Click to expand: View Gmail Integration</strong></summary>
+
+
+
+<img src="./screenshots/gmail_addon.png" alt="Gmail Addon" width="700">
+</details>
 
 ## 🛡️ Detection Logic & Threat Intelligence
 The scanner utilizes a hybrid detection engine based on cyber threat intelligence research regarding financial phishing campaigns. 
