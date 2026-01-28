@@ -1,0 +1,50 @@
+{
+  "_metadata": {
+    "version": "1.2.0",
+    "last_updated": "2026-01-26",
+    "description": "Phishing indicators based on 2025 cyber threat intelligence research",
+    "research_sources": ["internal-analysis", "financial-sector-reports"]
+  },
+  "urgency_keywords": [
+    "URGENT",
+    "IMMEDIATELY",
+    "ACTION REQUIRED",
+    "ACCOUNT SUSPENDED",
+    "VERIFY YOUR ACCOUNT",
+    "WARNING",
+    "PAYMENT DECLINED",
+    "UNAUTHORIZED ACCESS",
+    "SECURITY ALERT",
+    "CONFIRM IDENTITY",
+    "FINAL NOTICE",
+    "24 HOURS",
+    "LOCK YOUR ACCOUNT",
+    "UPDATE PAYMENT",
+    "CLICK HERE",
+    "LOGIN ATTEMPT",
+    "PASSWORD EXPIRING",
+    "REFUND PENDING",
+    "SUSPICIOUS ACTIVITY"
+  ],
+  "protected_domains": [
+    "paypal",
+    "google",
+    "apple",
+    "microsoft",
+    "amazon",
+    "facebook",
+    "netflix",
+    "instagram",
+    "linkedin",
+    "dropbox",
+    "adobe",
+    "whatsapp",
+    "chase",
+    "wellsfargo",
+    "bankofamerica",
+    "citibank",
+    "americanexpress",
+    "irs",
+    "zoom"
+  ]
+}
