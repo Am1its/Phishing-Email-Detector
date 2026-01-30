@@ -5,6 +5,7 @@
     "description": "Phishing indicators based on 2025 cyber threat intelligence research",
     "research_sources": ["internal-analysis", "financial-sector-reports"]
   },
+
   "urgency_keywords": [
     "URGENT",
     "IMMEDIATELY",
@@ -26,6 +27,7 @@
     "REFUND PENDING",
     "SUSPICIOUS ACTIVITY"
   ],
+
   "protected_domains": [
     "paypal",
     "google",
@@ -45,6 +47,24 @@
     "citibank",
     "americanexpress",
     "irs",
-    "zoom"
-  ]
+    "zoom",
+    "binance"
+  ],
+
+  "homograph_mappings": {
+    "1": "l",
+    "!": "l",
+    "|": "l",
+    "0": "o",
+    "3": "e",
+    "4": "a",
+    "@": "a",
+    "5": "s",
+    "$": "s",
+    "7": "t",
+    "8": "b",
+    "9": "g",
+    "vv": "w",
+    "rn": "m"
+  }
 }
