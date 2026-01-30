@@ -56,14 +56,20 @@ class SenderSpoofingDetector(PhishingIndicator):
         for domain in found_emails:
             domain_lower = domain.lower()
             
-            normalized = domain_lower
-            for char, replacement in self.mappings.items():
-                normalized = normalized.replace(char, replacement)
+            domain_parts = domain_lower.split('.')
+            
+            for part in domain_parts:
+                if len(part) < 2: continue 
 
-            for protected in self.protected_domains:
-                if normalized == protected and domain_lower != protected:
-                    findings.append(f"Spoofing Detected: '{domain}' mimics '{protected}'")
-                    
+                normalized_part = part
+                for char, replacement in self.mappings.items():
+                    normalized_part = normalized_part.replace(char, replacement)
+
+                for protected in self.protected_domains:
+                    if normalized_part == protected and part != protected:
+                        findings.append(f"Spoofing Detected: '{domain}' mimics '{protected}'")
+                        break 
+        
         return findings
 
 # --- Main Engine ---
