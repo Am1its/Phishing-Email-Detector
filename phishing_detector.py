@@ -44,46 +44,39 @@ class SuspiciousLinkDetector(PhishingIndicator):
         return findings
 
 class SenderSpoofingDetector(PhishingIndicator):
-    def __init__(self, protected_domains: List[str]):
+    def __init__(self, protected_domains: List[str], mappings: dict):
         self.protected_domains = protected_domains
+        self.mappings = mappings 
 
     def scan(self, email_content: str) -> List[str]:
         findings = []
         email_pattern = r"[\w\.-]+@([\w\.-]+)"
         found_emails = re.findall(email_pattern, email_content)
-        
+
         for domain in found_emails:
             domain_lower = domain.lower()
             
-            is_legit = False
-            for brand in self.protected_domains:
-                if brand in domain_lower:
-                    if f"{brand}.com" in domain_lower or f"{brand}.co" in domain_lower:
-                        is_legit = True
-                        break
-            if is_legit: continue
+            normalized = domain_lower
+            for char, replacement in self.mappings.items():
+                normalized = normalized.replace(char, replacement)
 
-            normalized = domain_lower.replace('1', 'l').replace('0', 'o').replace('3', 'e').replace('@', 'a').replace('!', 'i')
-
-            for brand in self.protected_domains:
-                if brand in normalized and brand not in domain_lower:
-                    findings.append(f"Spoofing: '{domain}' -> '{brand}'")
+            for protected in self.protected_domains:
+                if normalized == protected and domain_lower != protected:
+                    findings.append(f"Spoofing Detected: '{domain}' mimics '{protected}'")
                     
         return findings
 
 # --- Main Engine ---
 class PhishingScanner:
-    def __init__(self, config_path=None):
-        if config_path is None:
-            base_dir = os.path.dirname(os.path.abspath(__file__))
-            config_path = os.path.join(base_dir, "config.json")
-        
+    def __init__(self, config_path="config.json"):
         self.config = self._load_config(config_path)
         
+        mappings = self.config.get("homograph_mappings", {})
+
         self.detectors = [
             UrgencyDetector(self.config.get("urgency_keywords", [])),
             SuspiciousLinkDetector(),
-            SenderSpoofingDetector(self.config.get("protected_domains", []))
+            SenderSpoofingDetector(self.config.get("protected_domains", []), mappings)
         ]
 
     def _load_config(self, path):
