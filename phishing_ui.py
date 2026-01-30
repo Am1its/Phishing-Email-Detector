@@ -9,7 +9,7 @@ ctk.set_default_color_theme("blue")
 class PhishingApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("🛡️ Cyber Phishing Detector Pro")
+        self.title("🛡️ Cyber Phishing Detector")
         self.geometry("700x650") 
         
         self.scanner = PhishingScanner()
