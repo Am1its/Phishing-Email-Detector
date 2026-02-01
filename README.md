@@ -52,7 +52,7 @@ Run the script directly with a text file as an argument to get a terminal report
 python phishing_detector.py email.txt
 
 <details>
-<summary>📸 <strong>Click to expand: View Desktop UI</strong></summary>
+<summary>📸 <strong>Click to expand: View Command Line Interface</strong></summary>
 
 
 <img src="./screenshots/cli_demo.png" alt="Command Line Interface" width="700">
