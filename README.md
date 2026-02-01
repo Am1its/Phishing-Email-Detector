@@ -55,7 +55,7 @@ python phishing_detector.py email.txt
 <summary>📸 <strong>Click to expand: View Desktop UI</strong></summary>
 
 
-<img src="./screenshots/cli_demo.png" alt="Desktop UI" width="700">
+<img src="./screenshots/cli_demo.png" alt="Command Line Interface" width="700">
 </details>
 
 # Mode B: Desktop Dashboard (GUI)
